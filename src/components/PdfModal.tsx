@@ -15,24 +15,24 @@ export const PdfModal: React.FC<PdfModalProps> = ({ isOpen, onClose }) => {
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/70 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-5xl h-[85vh] bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden border border-slate-200"
+        className="relative w-full max-w-5xl h-[85vh] bg-white dark:bg-slate-900 rounded-xl shadow-2xl flex flex-col overflow-hidden border border-slate-200 dark:border-slate-800 transition-colors"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-slate-50">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-slate-100 rounded-lg text-slate-700">
-              <FileText className="w-5 h-5 text-slate-800" />
+            <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-200">
+              <FileText className="w-5 h-5 text-slate-800 dark:text-slate-200" />
             </div>
             <div>
-              <h3 id="modal-title" className="text-base font-semibold text-slate-900">
+              <h3 id="modal-title" className="text-base font-semibold text-slate-900 dark:text-white">
                 Original Curriculum Vitae (PDF)
               </h3>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 {cvData.personal.fullName} · Verified Document
               </p>
             </div>
@@ -42,7 +42,7 @@ export const PdfModal: React.FC<PdfModalProps> = ({ isOpen, onClose }) => {
             <a
               href={cvData.personal.cvPdfUrl}
               download="MD_FAZLUL_KABIR_MOIN_CV.pdf"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 hover:text-slate-900 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download PDF</span>
@@ -51,7 +51,7 @@ export const PdfModal: React.FC<PdfModalProps> = ({ isOpen, onClose }) => {
               href={cvData.personal.cvPdfUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 hover:text-slate-900 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               <span>Open in New Tab</span>
@@ -59,7 +59,7 @@ export const PdfModal: React.FC<PdfModalProps> = ({ isOpen, onClose }) => {
             <button
               onClick={onClose}
               aria-label="Close document viewer"
-              className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition-colors ml-2"
+              className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ml-2"
             >
               <X className="w-5 h-5" />
             </button>
@@ -67,7 +67,7 @@ export const PdfModal: React.FC<PdfModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* PDF viewer frame */}
-        <div className="flex-1 bg-slate-100 relative">
+        <div className="flex-1 bg-slate-100 dark:bg-slate-950 relative">
           <iframe
             src={`${cvData.personal.cvPdfUrl}#view=FitH`}
             title="Curriculum Vitae of Md. Fazlul Kabir Moin"
